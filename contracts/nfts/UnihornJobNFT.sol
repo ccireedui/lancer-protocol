@@ -99,7 +99,6 @@ contract UnihornJobNFT is ERC721, AccessControl {
       detail.currentStatus = JobStatus.PaymentReceived;
     }
 
-
     function startBiddingPhase(uint jobId) external onlyJobOwner(jobId,msg.sender) onlyPaymentReceivedStatus(jobId) {
       JobDetail storage detail = jobDetails[jobId];
       detail.currentStatus = JobStatus.Bidding;
