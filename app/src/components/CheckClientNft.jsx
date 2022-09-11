@@ -31,11 +31,11 @@ export default function CheckClientNft({ children }){
       return;
     }
 
-    const { factoryContract,signer,nftContact,userAddress } = await getClientRelatedContracts()
+    const { factoryContract,signer,nftContract,userAddress } = await getClientRelatedContracts()
 
     let tx = await factoryContract.connect(signer).createClient(usernameInput,linkedInInput,emailInput);
     await tx.wait()
-    let userNftBN = await nftContact.balanceOf(userAddress)
+    let userNftBN = await nftContract.balanceOf(userAddress)
 
     if(userNftBN.toNumber() > 0){
       setHasClientNft(true)

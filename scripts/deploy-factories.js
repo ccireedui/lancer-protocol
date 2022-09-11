@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const hre = require("hardhat");
 
@@ -20,6 +21,24 @@ async function main() {
   console.log("clientFactoryContract deployed to:", clientFactoryContract.address);
   console.log("freelancerFactoryContract deployed to:", freelancerFactoryContract.address);
   console.log("jobFactoryContract deployed to:", jobFactoryContract.address);
+
+  const content = {
+    "clientFactory" : clientFactoryContract.address,
+    "freelancerFactory" : freelancerFactoryContract.address,
+    "jobFactory" : jobFactoryContract.address,
+  }
+  createAddressJson(path.join(__dirname, '/../app/genAddresses.json'),JSON.stringify(content))
+
+}
+
+function createAddressJson(path,content){
+  try{
+    fs.writeFileSync(path,content)
+    console.log("Created Contract Address JSON")
+  } catch (err) {
+    console.error(err)
+    return
+  }
 }
 
 main()
