@@ -4,15 +4,17 @@ pragma solidity ^0.8.4;
 // Pending  - 0
 // PaymentReceived - 1,
 // Bidding  - 2
-// Started  - 3
-// Rating - 4
-// Payment - 5
-// Finished - 6
-// Canceled - 7
+// SentAllBid - 3
+// Started  - 4
+// Rating - 5
+// Payment - 6
+// Finished - 7
+// Canceled - 8
 enum JobStatus {
   Pending,
   PaymentReceived,
   Bidding,
+  SendingAllBid,
   Started,
   Rating,
   Payment,

@@ -284,7 +284,7 @@
     ],
     "name": "cancelJob",
     "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "payable",
     "type": "function"
   },
   {
@@ -412,6 +412,25 @@
         "internalType": "address",
         "name": "",
         "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "jobId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBiddersLength",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -605,6 +624,11 @@
     "name": "jobDetails",
     "outputs": [
       {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
         "internalType": "string",
         "name": "name",
         "type": "string"
@@ -623,6 +647,28 @@
         "internalType": "uint256",
         "name": "paymentAmount",
         "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "milestoneAmount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "milestoneDeadline",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "approvedMilestoneAmount",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct JobMilestoneDetail",
+        "name": "milestoneDetail",
+        "type": "tuple"
       },
       {
         "internalType": "enum JobStatus",
@@ -900,6 +946,19 @@
     "name": "safeTransferFrom",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "jobId",
+        "type": "uint256"
+      }
+    ],
+    "name": "sendAllBid",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
   },
   {
